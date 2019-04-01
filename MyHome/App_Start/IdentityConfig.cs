@@ -46,9 +46,9 @@ namespace MyHome
             //var transportWeb = new Web(credentials);
 
 
-            var apiKey = ConfigurationManager.AppSettings["NAME_OF_THE_ENVIRONMENT_VARIABLE_FOR_YOUR_SENDGRID_KEY"];//Environment.GetEnvironmentVariable("NAME_OF_THE_ENVIRONMENT_VARIABLE_FOR_YOUR_SENDGRID_KEY");
+            var apiKey = ConfigurationManager.AppSettings["SENDGRID_API_KEY"];//Environment.GetEnvironmentVariable("NAME_OF_THE_ENVIRONMENT_VARIABLE_FOR_YOUR_SENDGRID_KEY");
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("test@example.com", "Example User");
+            var from = new EmailAddress(ConfigurationManager.AppSettings["mailAccount"]);
             var subject = message.Subject;
             var to = new EmailAddress("test@example.com", "Example User");
             var plainTextContent = message.Body;

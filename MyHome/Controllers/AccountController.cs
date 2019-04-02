@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyHome.Models;
+using SendGrid.Helpers.Mail;
 
 namespace MyHome.Controllers
 {
@@ -17,15 +18,18 @@ namespace MyHome.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private readonly EmailService _emailSender;
 
         public AccountController()
         {
+            _emailSender = new EmailService();
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            _emailSender = new EmailService();
         }
 
         public ApplicationSignInManager SignInManager
@@ -51,10 +55,10 @@ namespace MyHome.Controllers
                 _userManager = value;
             }
         }
-
-        //
-        // GET: /Account/Login
-        [AllowAnonymous]
+        
+            //
+            // GET: /Account/Login
+            [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -175,11 +179,7 @@ namespace MyHome.Controllers
                     //  Comment the following line to prevent log in until the user is confirmed.
                     //  await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
-                    string callbackUrl = await SendEmailConfirmationTokenAsync(user.Id, "Confirm your account");
-
-                    ViewBag.Message = "Check your email and confirm your account, you must be confirmed "
-                                    + "before you can log in.";
-
+                    await SendEmailConfirmationTokenAsync(user.Id, "Confirm your account");
                     return View("Info");
                     //return RedirectToAction("Index", "Home");
                 }
@@ -443,11 +443,12 @@ namespace MyHome.Controllers
 
         private async Task<string> SendEmailConfirmationTokenAsync(string userID, string subject)
         {
+            var userEmail = UserManager.GetEmail(userID);
             string code = await UserManager.GenerateEmailConfirmationTokenAsync(userID);
             var callbackUrl = Url.Action("ConfirmEmail", "Account",
                new { userId = userID, code = code }, protocol: Request.Url.Scheme);
-            await UserManager.SendEmailAsync(userID, subject,
-               "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+            await _emailSender.configSendGridasync("Confirm your email", "Please confirm your account by clicking <a href=\"" + 
+                callbackUrl + "\">here</a>", userEmail);
 
             return callbackUrl;
         }

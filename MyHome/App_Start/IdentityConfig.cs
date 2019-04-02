@@ -11,11 +11,11 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using MyHome.Models;
-using SendGrid.Helpers.Mail;
 using System.Net;
 using System.Configuration;
 using System.Diagnostics;
 using SendGrid;
+using SendGrid.Helpers.Mail;
 using Microsoft.Web;
 
 namespace MyHome
@@ -24,47 +24,29 @@ namespace MyHome
     {
         public async Task SendAsync(IdentityMessage message)
         {
-            await configSendGridasync(message);
+            await configSendGridasync(message.Subject,message.Body,message.Destination);
         }
-
+     
         // Use NuGet to install SendGrid (Basic C# client lib) 
-        private async Task configSendGridasync(IdentityMessage message)
+        public Task configSendGridasync(string subject, string message, string email)
         {
-            //var myMessage = new SendGridMessage();
-            //myMessage.AddTo(message.Destination);
-            //myMessage.From = new EmailAddress("Joe@contoso.com", "Joe S.");
-            //myMessage.Subject = message.Subject;
-            //myMessage.PlainTextContent = message.Body;
-            //myMessage.HtmlContent = message.Body;
-
-            //var credentials = new NetworkCredential(
-            //           ConfigurationManager.AppSettings["mailAccount"],
-            //           ConfigurationManager.AppSettings["mailPassword"]
-            //           );
-
-            //// Create a Web transport for sending email.
-            //var transportWeb = new Web(credentials);
-
-
-            var apiKey = ConfigurationManager.AppSettings["SENDGRID_API_KEY"];//Environment.GetEnvironmentVariable("NAME_OF_THE_ENVIRONMENT_VARIABLE_FOR_YOUR_SENDGRID_KEY");
-            var client = new SendGridClient(apiKey);
-            var from = new EmailAddress(ConfigurationManager.AppSettings["mailAccount"]);
-            var subject = message.Subject;
-            var to = new EmailAddress("test@example.com", "Example User");
-            var plainTextContent = message.Body;
-            var htmlContent = message.Body;
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            var response = await client.SendEmailAsync(msg);
-
-            // Send the email.
-            if (client != null)
+            try
             {
-                await client.SendEmailAsync(msg);
+                var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY2");
+                var client = new SendGridClient(apiKey);
+                //var msg = new IdentityMessage();
+                var From = new EmailAddress("myhomemainuser@gmail.com", "Administration");
+                var Subject = subject;
+                var PlainTextContent = message;
+                var HtmlContent = message;
+                var To = new EmailAddress(email);
+                var msg = MailHelper.CreateSingleEmail(From, To, subject, PlainTextContent, HtmlContent);
+                return client.SendEmailAsync(msg);
             }
-            else
+            catch (ArgumentNullException)
             {
-                Trace.TraceError("Failed to create Web transport.");
-                await Task.FromResult(0);
+                throw;
+
             }
         }
     }

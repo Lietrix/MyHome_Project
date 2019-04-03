@@ -180,6 +180,8 @@ namespace MyHome.Controllers
                     //  await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
                     await SendEmailConfirmationTokenAsync(user.Id, "Confirm your account");
+
+                    ViewBag.Message = "Check your email, and click the link to confirm your account";
                     return View("Info");
                     //return RedirectToAction("Index", "Home");
                 }

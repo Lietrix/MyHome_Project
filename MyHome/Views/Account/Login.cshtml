@@ -42,19 +42,23 @@
                     </div>
                 </div>
                 <p>
-                    @Html.ActionLink("Register as a new user", "Register")
+                    @Html.ActionLink("Register", "Register")
                 </p>
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>
+                <p>
+                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                </p>
             }
         </section>
     </div>
+    <!-- 
+        Add this when you implement external logins
+
     <div class="col-md-4">
         <section id="socialLoginForm">
             @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
         </section>
     </div>
+        -->
 </div>
 
 @section Scripts {

@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MyHome.Models;
+using Microsoft.AspNet.Identity;
 
 namespace MyHome.Controllers
 {
@@ -46,9 +47,12 @@ namespace MyHome.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Value,Name,RoomID,FK_ID")] Room room)
+        public async Task<ActionResult> Create([Bind(Include = "Name,RoomID")] Room room)
         {
+            room.Value = 0;
+            room.User = User.Identity.GetUserId();
             if (ModelState.IsValid)
             {
                 db.Rooms.Add(room);
@@ -79,7 +83,7 @@ namespace MyHome.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Value,Name,RoomID,FK_ID")] Room room)
+        public async Task<ActionResult> Edit([Bind(Include = "Value,Name,RoomID,User")] Room room)
         {
             if (ModelState.IsValid)
             {

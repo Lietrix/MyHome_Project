@@ -1,4 +1,5 @@
-﻿@model IEnumerable<MyHome.Models.Room>
+﻿@using Microsoft.AspNet.Identity;
+@model IEnumerable<MyHome.Models.Room>
 
 @{
     ViewBag.Title = "Index";
@@ -18,7 +19,7 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FK_ID)
+            @Html.DisplayNameFor(model => model.User)
         </th>
         <th></th>
     </tr>
@@ -32,7 +33,7 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FK_ID)
+            @Html.DisplayFor(modelItem => item.User)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.RoomID }) |

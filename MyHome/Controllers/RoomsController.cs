@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using MyHome.Models;
 using Microsoft.AspNet.Identity;
+using System.Data.SqlClient;
+using System.Transactions;
 
 namespace MyHome.Controllers
 {
@@ -19,7 +21,9 @@ namespace MyHome.Controllers
         // GET: Rooms
         public async Task<ActionResult> Index()
         {
-            return View(await db.Rooms.ToListAsync());
+            ViewBag.WelcomeMessage = "Rooms";
+            string CurrentUser = User.Identity.GetUserId();
+            return View(await db.Rooms.Where(x => x.User == CurrentUser).ToListAsync());
         }
 
         // GET: Rooms/Details/5
@@ -49,14 +53,27 @@ namespace MyHome.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Name,RoomID")] Room room)
+        public async Task<ActionResult> Create([Bind(Include = "Name")] Room room)
         {
             room.Value = 0;
             room.User = User.Identity.GetUserId();
             if (ModelState.IsValid)
             {
-                db.Rooms.Add(room);
-                await db.SaveChangesAsync();
+                using (var transaction = db.Database.BeginTransaction())
+                {
+
+                    db.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Rooms] ON");
+                    room.RoomID = db.Rooms.Count() + 1;
+                    db.Rooms.Add(room);
+                    await db.SaveChangesAsync();
+
+                    db.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Rooms] OFF");
+
+                    transaction.Commit();
+                }
+                
+                
+
                 return RedirectToAction("Index");
             }
 

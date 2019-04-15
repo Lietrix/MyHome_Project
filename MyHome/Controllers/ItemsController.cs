@@ -13,7 +13,7 @@ namespace MyHome.Controllers
 {
     public class ItemsController : Controller
     {
-        private MyHomeModels db = new MyHomeModels();
+        private MyHomeEntities db = new MyHomeEntities();
 
         // GET: Items
         public async Task<ActionResult> Index()

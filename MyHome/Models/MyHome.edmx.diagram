@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fa6aad11fb0f4932897a3c3bb339ce38" Name="Diagram1">
+      <Diagram DiagramId="75dade52f10d41a38882ba7e8733b362" Name="Diagram1">
         <EntityTypeShape EntityType="MyHomeModel.AspNetUser" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MyHomeModel.Item" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="MyHomeModel.Room" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="MyHomeModel.FK_RoomID" ManuallyRouted="false" />
+        <AssociationConnector Association="MyHomeModel.FK__Items__RoomID__7F2BE32F" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -12,7 +12,7 @@ namespace MyHome.Controllers
 {
     public class DashboardController : Controller
     {
-        private MyHomeModels db = new MyHomeModels();
+        private MyHomeEntities db = new MyHomeEntities();
         // GET: Dashboard
         public async Task<ActionResult> Index()
         {

@@ -20,6 +20,25 @@ The homepage menu will include existing rooms, add rooms, settings, and logout. 
 	Lastly, the logout button will simply log the user out.
   
   
-Entity Relationship Diagram
+# Entity Relationship Diagram
 ![Entity Relationship Diagram](https://user-images.githubusercontent.com/36711347/56170052-02029400-5f95-11e9-8621-0eda5038eb6a.jpeg)
+My current tables are for the first initial product for my project. In the future I will be adding how values for houses, 
+  and making settings for each user, along with product advirtisements.
+
+
+# Flowchart for creating a room
+![User Room flowchart](https://user-images.githubusercontent.com/36711347/56224942-489fcf00-6025-11e9-8e25-cbdbf5ec0924.jpg)
+Users can create rooms with ease, and add items directly to these rooms. Each item will be uniquely stored within a room.
+
+
+
+
+# Login system 
+![MyHome Login Flowchart](https://user-images.githubusercontent.com/36711347/56223615-f2ca2780-6022-11e9-9548-2196b53aad9b.jpg)
+
+
+
+
+### Download my Powerpoint 
+[Presentation.pptx](https://github.com/Lietrix/MyHome_Project/files/3085723/Presentation.pptx)
 

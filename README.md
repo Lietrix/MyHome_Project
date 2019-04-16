@@ -20,13 +20,13 @@ The homepage menu will include existing rooms, add rooms, settings, and logout. 
 	Lastly, the logout button will simply log the user out.
   
 ### Table of Contents
-  [Entity Relationship Diagram](MyHome_Project#entity-relationship-diagram)
+  [Entity Relationship Diagram](README.md#entity-relationship-diagram)
   
-  [Creating a room](MyHome_Project#User-Room-flowchart)
+  [Creating a room](README.md#User-Room-flowchart)
   
-  [Login System](MyHome_Project#MyHome-Login-Flowchart)
+  [Login System](README.md#MyHome-Login-Flowchart)
   
-  [Current Progress](MyHome_Project#1)
+  [Current Progress](README.md#1)
   
   [Download Powerpoint presentation](MyHome_Project#Powerpoint-download)
 ## Entity Relationship Diagram

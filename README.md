@@ -19,26 +19,44 @@ The homepage menu will include existing rooms, add rooms, settings, and logout. 
   in the room, and the total room value. 
 	Lastly, the logout button will simply log the user out.
   
+### Table of Contents
+  [Entity Relationship Diagram](MyHome_Project#entity-relationship-diagram)
   
-# Entity Relationship Diagram
+  [Creating a room](MyHome_Project#User-Room-flowchart)
+  
+  [Login System](MyHome_Project#MyHome-Login-Flowchart)
+  
+  [Current Progress](MyHome_Project#1)
+  
+  [Download Powerpoint presentation](MyHome_Project#Powerpoint-download)
+## Entity Relationship Diagram
 ![Entity Relationship Diagram](https://user-images.githubusercontent.com/36711347/56170052-02029400-5f95-11e9-8621-0eda5038eb6a.jpeg)
 My current tables are for the first initial product for my project. In the future I will be adding how values for houses, 
   and making settings for each user, along with product advirtisements.
 
 
-# Flowchart for creating a room
+## Flowchart for creating a room
 ![User Room flowchart](https://user-images.githubusercontent.com/36711347/56224942-489fcf00-6025-11e9-8e25-cbdbf5ec0924.jpg)
 Users can create rooms with ease, and add items directly to these rooms. Each item will be uniquely stored within a room.
 
 
 
 
-# Login system 
+## Login system 
 ![MyHome Login Flowchart](https://user-images.githubusercontent.com/36711347/56223615-f2ca2780-6022-11e9-9548-2196b53aad9b.jpg)
 
+## Current Progress
+Login Menu
+![1](https://user-images.githubusercontent.com/36711347/56227274-f6ad7800-6029-11e9-856b-672488215932.png)
+
+Once your loggedin homepage
+![2](https://user-images.githubusercontent.com/36711347/56227337-15137380-602a-11e9-90bc-1992081e3b25.png)
+
+Dashboard Menu, ability to create rooms
+![3](https://user-images.githubusercontent.com/36711347/56227375-28beda00-602a-11e9-91a7-79084a1f599c.png)
 
 
 
 ### Download my Powerpoint 
-[Presentation.pptx](https://github.com/Lietrix/MyHome_Project/files/3085723/Presentation.pptx)
+[Powerpoint download](https://github.com/Lietrix/MyHome_Project/files/3085723/Presentation.pptx)
 

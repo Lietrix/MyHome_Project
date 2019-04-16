@@ -46,17 +46,17 @@ Users can create rooms with ease, and add items directly to these rooms. Each it
 ![MyHome Login Flowchart](https://user-images.githubusercontent.com/36711347/56223615-f2ca2780-6022-11e9-9548-2196b53aad9b.jpg)
 
 ## Current Progress
-Login Menu
+**Login Menu**
 ![1](https://user-images.githubusercontent.com/36711347/56227274-f6ad7800-6029-11e9-856b-672488215932.png)
 
-Once your loggedin homepage
+**Once you're loggedin homepage**
 ![2](https://user-images.githubusercontent.com/36711347/56227337-15137380-602a-11e9-90bc-1992081e3b25.png)
 
-Dashboard Menu, ability to create rooms
+**Dashboard Menu, ability to create rooms**
 ![3](https://user-images.githubusercontent.com/36711347/56227375-28beda00-602a-11e9-91a7-79084a1f599c.png)
 
 
 
 ### Download my Powerpoint 
-[Powerpoint download](https://github.com/Lietrix/MyHome_Project/files/3085723/Presentation.pptx)
+**[Powerpoint download](https://github.com/Lietrix/MyHome_Project/files/3085723/Presentation.pptx)**
 

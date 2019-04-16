@@ -22,13 +22,13 @@ The homepage menu will include existing rooms, add rooms, settings, and logout. 
 ### Table of Contents
   [Entity Relationship Diagram](README.md#entity-relationship-diagram)
   
-  [Creating a room](README.md#User-Room-flowchart)
+  [Creating a room](README.md#Flowchart-for-creating-a-room)
   
-  [Login System](README.md#MyHome-Login-Flowchart)
+  [Login System](README.md#Login-system)
   
-  [Current Progress](README.md#1)
+  [Current Progress](README.md#Current-Progress)
   
-  [Download Powerpoint presentation](MyHome_Project#Powerpoint-download)
+  [Download Powerpoint presentation](MyHome_Project#Download-my-Powerpoint)
 ## Entity Relationship Diagram
 ![Entity Relationship Diagram](https://user-images.githubusercontent.com/36711347/56170052-02029400-5f95-11e9-8621-0eda5038eb6a.jpeg)
 My current tables are for the first initial product for my project. In the future I will be adding how values for houses, 

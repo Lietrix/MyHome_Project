@@ -1,4 +1,5 @@
 ﻿@model MyHome.Models.Room
+@using MyHome.Models
 
 @{
     ViewBag.Title = "Edit";
@@ -33,9 +34,10 @@
         </div>
     </div>
 }
+@Html.Partial("_AddItem", new Item{ RoomID = Model.RoomID })
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Return to dashboard", "Index","Dashboard","","")
 </div>
 
 @section Scripts {

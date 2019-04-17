@@ -22,11 +22,11 @@
                     @Html.DisplayFor(modelItem => item.Value)
                 </td>
                 <td>
-                    <a href="">@Html.DisplayFor(modelItem => item.Name)</a>
+                    <!--Displays the room name and when clicked goes to the edit page for that room-->
+                    @Html.ActionLink(item.Name, "Edit", "Rooms", new { id = item.RoomID },"")
                 </td>
                 <td>
-                    <!--Html.ActionLink("Change Name", "Edit", "Rooms", new { id = item.RoomID }, "") |-->
-                    <!--Html.ActionLink("Add Items", "AddItems","Rooms", new { id = item.RoomID },"") |-->
+                    <!--Shows a delete option next to each room, when clicked goes to the delete page-->
                     @Html.ActionLink("Delete", "Delete", "Rooms", new { id = item.RoomID }, "")
                 </td>
             </tr>

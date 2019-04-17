@@ -42,7 +42,7 @@ The homepage menu will include existing rooms, add rooms, settings, and logout. 
 3 | Create Items for rooms | No | No
 4 | Delete Rooms | Yes | No
 5 | Delete Items | No | No
-6 | Aethetic User Dashboard | No | No
+6 | Aesthetic User Dashboard | No | No
 7 | Room Level/star system | No | No
 8 | Purchase dates for items | No | No
 9 | Phonenumber Authentication | No | No

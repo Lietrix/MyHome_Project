@@ -1,17 +1,25 @@
-﻿@model MyHome.Models.Room
-@using MyHome.Models
+﻿@model MyHome.ViewModels.RoomViewModel
 
 @{
     ViewBag.Title = "Edit";
 }
-
+<head>
+    <title>
+        @Model.room.Name
+    </title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.js"
+            type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.unobtrusive-ajax.min.js"
+            type="text/javascript"></script>
+</head>
 <h2>Edit</h2>
 
 
+<!-- This form is allowing users to change the name of the room -->
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Room</h4>
         <hr />
@@ -34,10 +42,13 @@
         </div>
     </div>
 }
-@Html.Partial("_AddItem", new Item{ RoomID = Model.RoomID })
+<div>
+    @Html.Partial("_AddItem", new Item { RoomID = Model.RoomID })
+</div>
+
 
 <div>
-    @Html.ActionLink("Return to dashboard", "Index","Dashboard","","")
+    @Html.ActionLink("Return to dashboard", "Index", "Dashboard", "", "")
 </div>
 
 @section Scripts {

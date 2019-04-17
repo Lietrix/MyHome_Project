@@ -38,9 +38,16 @@ namespace MyHome.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index", "Dashboard");
             }
-
+            
             return View(room);
         }
+
+        [HttpGet]
+        public PartialViewResult ItemList()
+        {
+            return PartialView();
+        }
+
 
         // GET: Rooms/Edit/5
         public async Task<ActionResult> Edit(int? id)

@@ -55,7 +55,7 @@ namespace MyHome.Controllers
             {
                 db.Items.Add(item);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+               // return RedirectToAction("Edit", "Rooms");
             }
 
             ViewBag.RoomID = new SelectList(db.Rooms, "RoomID", "Name", item.RoomID);

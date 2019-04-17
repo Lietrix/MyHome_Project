@@ -43,28 +43,36 @@ The homepage menu will include existing rooms, add rooms, settings, and logout. 
 4 | Delete Rooms | Yes | No
 5 | Delete Items | No | No
 6 | Aethetic User Dashboard | No | No
+7 | Room Level/star system | No | No
+8 | Purchase dates for items | No | No
+9 | Phonenumber Authentication | No | No
+10 | Multiple houses options | No | No
+11 | Pictures storage | No | No
 
 ## Prioritized backlog items
 
   Priority | -
 --- | --- 
-1 | Frontpage styling with bootstrap 4
-2 | Room Level/star system
-3 | Item purchase dates
-4 | Phonenumber authentication
-5 | Ability to add houses
-6 | After account creation, prompt user to input house details right away to generated homepage
-7 | Notifications for expiring items
-8 | Item maintenance scheduling
-9 | Item room sharing
-10 | Insurance awareness
-11 | Picture storage
-12 | Barcode scanning to instantly add items
-
+1 | User creation of Rooms and items
+2 | More functionality to Dashboard page
+3 | Update homepage
+4 | Frontpage styling with bootstrap 4
+5 | Room Level/star system
+6 | Item purchase dates
+7 | Phonenumber authentication
+8 | Ability to add houses
+9 | After account creation, prompt user to input house details right away to generated homepage
+10 | Notifications for expiring items
+11 | Item maintenance scheduling
+12 | Item room sharing
+13 | Insurance awareness
+14 | Picture storage
+15 | Barcode scanning to instantly add items
 
   
 ## Entity Relationship Diagram
-![Entity Relationship Diagram](https://user-images.githubusercontent.com/36711347/56170052-02029400-5f95-11e9-8621-0eda5038eb6a.jpeg)
+![ERD MyHome](https://user-images.githubusercontent.com/36711347/56307205-28d9db00-60f9-11e9-8f36-4755eaa48191.jpeg)
+
 My current tables are for the first initial product for my project. In the future I will be adding how values for houses, 
   and making settings for each user, along with product advirtisements.
 

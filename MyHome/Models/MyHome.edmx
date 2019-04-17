@@ -29,8 +29,8 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Value" Type="money" />
           <Property Name="ExpirationDate" Type="date" />
-          <Property Name="RoomID" Type="int" Nullable="false" />
-          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="RoomID" Type="int" />
+          <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Rooms">
           <Key>
@@ -38,11 +38,11 @@
           </Key>
           <Property Name="Value" Type="money" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="RoomID" Type="int" Nullable="false" />
+          <Property Name="RoomID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="User" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
-        <Association Name="FK_RoomID">
-          <End Role="Rooms" Type="Self.Rooms" Multiplicity="1" />
+        <Association Name="FK__Items__RoomID__7F2BE32F">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="0..1" />
           <End Role="Items" Type="Self.Items" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Rooms">
@@ -57,7 +57,7 @@
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_RoomID" Association="Self.FK_RoomID">
+          <AssociationSet Name="FK__Items__RoomID__7F2BE32F" Association="Self.FK__Items__RoomID__7F2BE32F">
             <End Role="Rooms" EntitySet="Rooms" />
             <End Role="Items" EntitySet="Items" />
           </AssociationSet>
@@ -91,9 +91,9 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Value" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="ExpirationDate" Type="DateTime" Precision="0" />
-          <Property Name="RoomID" Type="Int32" Nullable="false" />
-          <Property Name="ItemID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Room" Relationship="Self.FK_RoomID" FromRole="Items" ToRole="Rooms" />
+          <Property Name="RoomID" Type="Int32" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Room" Relationship="Self.FK__Items__RoomID__7F2BE32F" FromRole="Items" ToRole="Rooms" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
@@ -101,12 +101,12 @@
           </Key>
           <Property Name="Value" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <Property Name="RoomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="User" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Items" Relationship="Self.FK_RoomID" FromRole="Rooms" ToRole="Items" />
+          <NavigationProperty Name="Items" Relationship="Self.FK__Items__RoomID__7F2BE32F" FromRole="Rooms" ToRole="Items" />
         </EntityType>
-        <Association Name="FK_RoomID">
-          <End Role="Rooms" Type="Self.Room" Multiplicity="1" />
+        <Association Name="FK__Items__RoomID__7F2BE32F">
+          <End Role="Rooms" Type="Self.Room" Multiplicity="0..1" />
           <End Role="Items" Type="Self.Item" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Rooms">
@@ -117,11 +117,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MyHomeModels" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MyHomeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
           <EntitySet Name="Items" EntityType="Self.Item" />
           <EntitySet Name="Rooms" EntityType="Self.Room" />
-          <AssociationSet Name="FK_RoomID" Association="Self.FK_RoomID">
+          <AssociationSet Name="FK__Items__RoomID__7F2BE32F" Association="Self.FK__Items__RoomID__7F2BE32F">
             <End Role="Rooms" EntitySet="Rooms" />
             <End Role="Items" EntitySet="Items" />
           </AssociationSet>
@@ -131,7 +131,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MyHomeModelStoreContainer" CdmEntityContainer="MyHomeModels">
+        <EntityContainerMapping StorageEntityContainer="MyHomeModelStoreContainer" CdmEntityContainer="MyHomeEntities">
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="MyHomeModel.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">

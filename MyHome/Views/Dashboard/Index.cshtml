@@ -22,12 +22,12 @@
                     @Html.DisplayFor(modelItem => item.Value)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    <a href="">@Html.DisplayFor(modelItem => item.Name)</a>
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.RoomID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.RoomID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.RoomID })
+                    <!--Html.ActionLink("Change Name", "Edit", "Rooms", new { id = item.RoomID }, "") |-->
+                    <!--Html.ActionLink("Add Items", "AddItems","Rooms", new { id = item.RoomID },"") |-->
+                    @Html.ActionLink("Delete", "Delete", "Rooms", new { id = item.RoomID }, "")
                 </td>
             </tr>
         }

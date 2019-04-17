@@ -17,7 +17,7 @@ namespace MyHome.Models
         public string Name { get; set; }
         public Nullable<decimal> Value { get; set; }
         public Nullable<System.DateTime> ExpirationDate { get; set; }
-        public int RoomID { get; set; }
+        public Nullable<int> RoomID { get; set; }
         public int ItemID { get; set; }
     
         public virtual Room Room { get; set; }

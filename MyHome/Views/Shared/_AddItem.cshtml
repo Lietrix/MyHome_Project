@@ -32,7 +32,7 @@
                 @Html.ValidationMessageFor(model => model.ExpirationDate, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+        @Html.HiddenFor(model => model.RoomID)
 
 
         <div class="form-group">

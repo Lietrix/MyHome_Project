@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using MyHome.Models;
 using Microsoft.AspNet.Identity;
+using MyHome.ViewModels;
 
 namespace MyHome.Controllers
 {
@@ -33,6 +34,7 @@ namespace MyHome.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 room.User = User.Identity.GetUserId();
                 db.Rooms.Add(room);
                 await db.SaveChangesAsync();

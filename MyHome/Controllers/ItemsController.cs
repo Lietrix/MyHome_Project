@@ -53,13 +53,15 @@ namespace MyHome.Controllers
         {
             if (ModelState.IsValid)
             {
+                int? temp = item.RoomID;
+               
                 db.Items.Add(item);
                 await db.SaveChangesAsync();
-               // return RedirectToAction("Edit", "Rooms");
+                return RedirectToAction("Edit", "Rooms", new { id = temp });
             }
 
             ViewBag.RoomID = new SelectList(db.Rooms, "RoomID", "Name", item.RoomID);
-            return View(item);
+            return RedirectToAction("Index", "Dashboard");
         }
 
         // GET: Items/Edit/5

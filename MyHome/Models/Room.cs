@@ -22,6 +22,7 @@ namespace MyHome.Models
     
         public Nullable<decimal> Value { get; set; }
         public string Name { get; set; }
+        
         public int RoomID { get; set; }
         public string User { get; set; }
     

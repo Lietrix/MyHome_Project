@@ -23,7 +23,7 @@
                 </td>
                 <td>
                     <!--Displays the room name and when clicked goes to the edit page for that room-->
-                    @Html.ActionLink(item.Name, "Edit", "Rooms", new { id = item.RoomID },"")
+                    @Html.ActionLink(item.Name, "Edit", "Rooms", new { id = item.RoomID },new { @class = "btn-josh" })
                 </td>
                 <td>
                     <!--Shows a delete option next to each room, when clicked goes to the delete page-->

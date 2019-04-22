@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity;
 
 namespace MyHome.Controllers
 {
+    [Authorize]
     public class DashboardController : Controller
     {
         private MyHomeEntities db = new MyHomeEntities();

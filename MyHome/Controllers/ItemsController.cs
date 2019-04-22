@@ -11,6 +11,7 @@ using MyHome.Models;
 
 namespace MyHome.Controllers
 {
+    [Authorize]
     public class ItemsController : Controller
     {
         private MyHomeEntities db = new MyHomeEntities();
@@ -37,12 +38,12 @@ namespace MyHome.Controllers
             return View(item);
         }
 
-        // GET: Items/Create
-        public ActionResult Create()
-        {
-            ViewBag.RoomID = new SelectList(db.Rooms, "RoomID", "Name");
-            return View();
-        }
+        // GET: Items/Create         Unused at the moment
+        //public ActionResult Create()
+        //{
+        //    ViewBag.RoomID = new SelectList(db.Rooms, "RoomID", "Name");
+        //    return View();
+        //}
 
         // POST: Items/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -52,12 +53,12 @@ namespace MyHome.Controllers
         public async Task<ActionResult> Create([Bind(Include = "Name,Value,ExpirationDate,RoomID,ItemID")] Item item)
         {
             if (ModelState.IsValid)
-            {
-                int? temp = item.RoomID;
-               
+            {  
+                
                 db.Items.Add(item);
+                
                 await db.SaveChangesAsync();
-                return RedirectToAction("Edit", "Rooms", new { id = temp });
+                return RedirectToAction("Edit", "Rooms", new { id = item.RoomID });
             }
 
             ViewBag.RoomID = new SelectList(db.Rooms, "RoomID", "Name", item.RoomID);
@@ -118,9 +119,10 @@ namespace MyHome.Controllers
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             Item item = await db.Items.FindAsync(id);
+            int? temp = item.RoomID;
             db.Items.Remove(item);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Edit", "Rooms", new { id = temp });
         }
 
         protected override void Dispose(bool disposing)
@@ -131,5 +133,7 @@ namespace MyHome.Controllers
             }
             base.Dispose(disposing);
         }
+
+        
     }
 }

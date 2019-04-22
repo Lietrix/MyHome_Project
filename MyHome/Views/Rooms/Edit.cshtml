@@ -68,6 +68,14 @@
                 </td>
                 <td>
                     <!--Shows a delete option next to each room, when clicked goes to the delete page-->
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Delete" class="btn btn-default" /> |
+                        </div>
+                    }
                     @Html.ActionLink("Delete Item", "Delete", "Items", new { id = item.ItemID }, "")
                 </td>
             </tr>

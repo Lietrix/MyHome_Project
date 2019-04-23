@@ -11,6 +11,7 @@ using MyHome.Models;
 
 namespace MyHome.Controllers
 {
+    [Authorize]
     public class ItemsController : Controller
     {
         private MyHomeEntities db = new MyHomeEntities();

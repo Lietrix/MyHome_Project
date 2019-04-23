@@ -13,6 +13,7 @@ using MyHome.ViewModels;
 
 namespace MyHome.Controllers
 {
+    [Authorize]
     public class RoomsController : Controller
     {
         private MyHomeEntities db = new MyHomeEntities();

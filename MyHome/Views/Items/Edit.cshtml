@@ -1,5 +1,6 @@
 ﻿@model MyHome.Models.Item
-
+@using MyHome.CustomIdentity;
+@using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "Edit";
 }
@@ -39,14 +40,17 @@
             </div>
         </div>
 
+        <!--     hidden until I figure out how to only get the rooms associated to that user
         <div class="form-group">
-            @Html.LabelFor(model => model.RoomID, "RoomID", htmlAttributes: new { @class = "control-label col-md-2" })
+            Html.LabelFor(model => model.RoomID, "Room", htmlAttributes: new { class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("RoomID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.RoomID, "", new { @class = "text-danger" })
+                Html.DropDownList("RoomID",null , htmlAttributes: new { class = "form-control" })
+                Html.ValidationMessageFor(model => model.RoomID, "", new { class = "text-danger" })
             </div>
         </div>
+            -->
 
+        @Html.HiddenFor(model => model.RoomID)
         @Html.HiddenFor(model => model.ItemID)
 
         <div class="form-group">

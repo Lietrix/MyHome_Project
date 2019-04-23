@@ -20,7 +20,19 @@ namespace MyHome.Models
             this.Items = new HashSet<Item>();
         }
     
-        public Nullable<decimal> Value { get; set; }
+        public Nullable<decimal> Value {
+            get {
+                decimal? x = 0;
+                foreach (Item item in Items)
+                {
+                    x += item.Value;
+                }
+                return x;
+            }
+            set { }
+            
+        }
+
         public string Name { get; set; }
         
         public int RoomID { get; set; }
@@ -28,5 +40,9 @@ namespace MyHome.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Item> Items { get; set; }
+
+
     }
+
+
 }

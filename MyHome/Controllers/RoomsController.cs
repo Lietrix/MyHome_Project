@@ -35,7 +35,6 @@ namespace MyHome.Controllers
         {
             if (ModelState.IsValid)
             {
-                
                 room.User = User.Identity.GetUserId();
                 db.Rooms.Add(room);
                 await db.SaveChangesAsync();
@@ -117,5 +116,24 @@ namespace MyHome.Controllers
             }
             base.Dispose(disposing);
         }
+
+       // private decimal? getRoomValue(int? RoomID)
+       // {
+       //     //db.Rooms.ElementAt((int)item.RoomID).Value += item.Value;
+       //     decimal? total = 0;
+       //     var itemList = db.Items.Join(db.Rooms,
+       //              i => i.RoomID,
+       //              r => r.RoomID,
+       //              (i, r) => i).ToList();
+       //     foreach (var item in itemList)
+       //     {
+       //         if (item.RoomID == RoomID)
+       //         {
+       //             total += item.Value;
+       //         }
+       //     }
+       //
+       //     return total;
+       // }
     }
 }

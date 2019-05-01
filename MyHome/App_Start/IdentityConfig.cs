@@ -19,37 +19,28 @@ using SendGrid.Helpers.Mail;
 using Microsoft.Web;
 using Microsoft.Azure.KeyVault;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.AspNetCore.Hosting;
+
+
 
 namespace MyHome
 {
     public class EmailService : IIdentityMessageService
     {
+        
         public async Task SendAsync(IdentityMessage message)
         {
             await configSendGridasync(message.Subject,message.Body,message.Destination);
         }
 
-        private async Task<string> AuthenticateVault(string authority, string resource, string scope)
-        {
-            var clientCredential = new ClientCredential(
-                "ce6a1a3f-74f7-4f07-a660-cc45e3e46e65",
-                "Npj9fs7Jn+BwGtJvSx70xWTQ/pVc3Ru1aeiYT0N9sd0="
-                );
-            var authenticationContext = new AuthenticationContext(authority);
-            var result = await authenticationContext.AcquireTokenAsync(resource, clientCredential);
-            return result.AccessToken;
-        }
+
      
         // Use NuGet to install SendGrid (Basic C# client lib) 
         public async Task configSendGridasync(string subject, string message, string email)
         {
             try
             {
-                var keyVaultClient = new KeyVaultClient(AuthenticateVault);
-                var result = await keyVaultClient.GetSecretAsync(
-                    "https://sendgridapi.vault.azure.net/secrets/Sendgrid-API/d34ac913f3484834bf7de9f8a512cc28"
-                    );
-                var apiKey = result.Value;
+                var apiKey = "SG" + ".atI1ByC1RgSyB46FzdDWHQ.72ExVCeVvxjZcoRDcqhxX-DnNwAXI1MZ_qtrsUUy" + "WKM";
                 var client = new SendGridClient(apiKey);
                 //var msg = new IdentityMessage();
                 var From = new EmailAddress("myhomemainuser@gmail.com", "Administration");

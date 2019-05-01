@@ -39,9 +39,9 @@ The homepage menu will include existing rooms, add rooms, settings, and logout. 
 --- | --- | --- | ---
 1 | Account Creation | Yes | No
 2 | Create rooms for accounts | Yes | No
-3 | Create Items for rooms | No | No
+3 | Create Items for rooms | Yes | No
 4 | Delete Rooms | Yes | No
-5 | Delete Items | No | No
+5 | Delete Items | Yes | No
 6 | Aesthetic User Dashboard | No | No
 7 | Room Level/star system | No | No
 8 | Purchase dates for items | No | No
@@ -51,23 +51,23 @@ The homepage menu will include existing rooms, add rooms, settings, and logout. 
 
 ## Prioritized backlog items
 
-  Priority | -
---- | --- 
-1 | User creation of Rooms and items
-2 | More functionality to Dashboard page
-3 | Update homepage
-4 | Frontpage styling with bootstrap 4
-5 | Room Level/star system
-6 | Item purchase dates
-7 | Phonenumber authentication
-8 | Ability to add houses
-9 | After account creation, prompt user to input house details right away to generated homepage
-10 | Notifications for expiring items
-11 | Item maintenance scheduling
-12 | Item room sharing
-13 | Insurance awareness
-14 | Picture storage
-15 | Barcode scanning to instantly add items
+  Priority Level | Item | Implemented
+--- | --- | ---
+1 | User creation of Rooms and items | Yes
+2 | More functionality to Dashboard page |
+3 | Update homepage |
+4 | Frontpage styling with bootstrap 4 |
+5 | Room Level/star system |
+6 | Item purchase dates |
+7 | Phonenumber authentication |
+8 | Ability to add houses |
+9 | Prompt user to input house details to generated homepage |
+10 | Notifications for expiring items |
+11 | Item maintenance scheduling |
+12 | Item room sharing |
+13 | Insurance awareness |
+14 | Picture storage |
+15 | Barcode scanning to instantly add items |
 
   
 ## Entity Relationship Diagram

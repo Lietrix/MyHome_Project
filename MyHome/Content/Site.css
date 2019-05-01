@@ -43,6 +43,5 @@ textarea {
 
     .btn-josh:hover {
         color: #15c6d1;
-        text-decoration: none;
-        font: bold;
+        text-decoration: solid;
     }

@@ -17,6 +17,8 @@ using System.Diagnostics;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using Microsoft.Web;
+using Microsoft.Azure.KeyVault;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 namespace MyHome
 {
@@ -26,13 +28,28 @@ namespace MyHome
         {
             await configSendGridasync(message.Subject,message.Body,message.Destination);
         }
+
+        private async Task<string> AuthenticateVault(string authority, string resource, string scope)
+        {
+            var clientCredential = new ClientCredential(
+                "ce6a1a3f-74f7-4f07-a660-cc45e3e46e65",
+                "Npj9fs7Jn+BwGtJvSx70xWTQ/pVc3Ru1aeiYT0N9sd0="
+                );
+            var authenticationContext = new AuthenticationContext(authority);
+            var result = await authenticationContext.AcquireTokenAsync(resource, clientCredential);
+            return result.AccessToken;
+        }
      
         // Use NuGet to install SendGrid (Basic C# client lib) 
-        public Task configSendGridasync(string subject, string message, string email)
+        public async Task configSendGridasync(string subject, string message, string email)
         {
             try
             {
-                var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY2");
+                var keyVaultClient = new KeyVaultClient(AuthenticateVault);
+                var result = await keyVaultClient.GetSecretAsync(
+                    "https://sendgridapi.vault.azure.net/secrets/Sendgrid-API/d34ac913f3484834bf7de9f8a512cc28"
+                    );
+                var apiKey = result.Value;
                 var client = new SendGridClient(apiKey);
                 //var msg = new IdentityMessage();
                 var From = new EmailAddress("myhomemainuser@gmail.com", "Administration");
@@ -41,7 +58,7 @@ namespace MyHome
                 var HtmlContent = message;
                 var To = new EmailAddress(email);
                 var msg = MailHelper.CreateSingleEmail(From, To, subject, PlainTextContent, HtmlContent);
-                return client.SendEmailAsync(msg);
+                await client.SendEmailAsync(msg);
             }
             catch (ArgumentNullException)
             {

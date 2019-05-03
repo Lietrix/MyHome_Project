@@ -29,6 +29,8 @@ The homepage menu will include existing rooms, add rooms, settings, and logout. 
   
   [Login System](README.md#Login-system)
   
+  [Wireframes](README.md#Wireframes)
+  
   [Current Progress](README.md#Current-Progress)
   
   [Download Powerpoint presentation](README.md#Download-my-Powerpoint)
@@ -81,7 +83,12 @@ My current tables are for the first initial product for my project. In the futur
 ![User Room flowchart](https://user-images.githubusercontent.com/36711347/56224942-489fcf00-6025-11e9-8e25-cbdbf5ec0924.jpg)
 Users can create rooms with ease, and add items directly to these rooms. Each item will be uniquely stored within a room.
 
+## Wireframes
+**User Dashboard**
+![MyHome Wireframe1](https://user-images.githubusercontent.com/36711347/57154318-76a74200-6d8d-11e9-821e-c242342d071e.png)
 
+**Room UI**
+![MyHome Wireframe2](https://user-images.githubusercontent.com/36711347/57154388-9d657880-6d8d-11e9-8531-65d2d5b9cd8e.png)
 
 
 ## Login system 

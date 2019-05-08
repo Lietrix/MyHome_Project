@@ -61,7 +61,7 @@ The homepage menu will include existing rooms, add rooms, settings, and logout. 
 20 | Allow insurrance companies access | No | No
 21 | Implement picture API to auto add | No | No
 22 | add additional loggin options | No | No
-23 | Develop chart system for fashboard page | No | No
+23 | Develop chart system for dashboard | No | No
 
 ## Prioritized backlog items
 

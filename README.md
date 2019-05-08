@@ -62,6 +62,8 @@ The homepage menu will include existing rooms, add rooms, settings, and logout. 
 21 | Implement picture API to auto add | No | No
 22 | add additional loggin options | No | No
 23 | Develop chart system for dashboard | No | No
+24 | Add an ALL ITEM page | No | No
+24.1 | Allow users to search through their items | No | No
 
 ## Prioritized backlog items
 

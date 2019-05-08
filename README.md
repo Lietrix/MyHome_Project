@@ -50,6 +50,18 @@ The homepage menu will include existing rooms, add rooms, settings, and logout. 
 9 | Phonenumber Authentication | No | No
 10 | Multiple houses options | No | No
 11 | Pictures storage | No | No
+12 | Additional user settings | No | No
+13 | jQuery functions | No | No
+14 | Logo designed | No | No
+15 | Advertising capability | No | No
+16 | use jQuery to make SPA | No | No
+17 | Allow user feedback system | No | No
+18 | Add item selectivity | No | No
+19 | Make rooms availabile to be public | No | No
+20 | Allow insurrance companies access | No | No
+21 | Implement picture API to auto add | No | No
+22 | add additional loggin options | No | No
+23 | Develop chart system for fashboard page | No | No
 
 ## Prioritized backlog items
 

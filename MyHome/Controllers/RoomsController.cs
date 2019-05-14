@@ -18,8 +18,8 @@ namespace MyHome.Controllers
     {
         private MyHomeEntities db = new MyHomeEntities();
 
-
-
+        private string LoggedInUser() => User.Identity.GetUserId();
+        
         // GET: Rooms/Create
         public ActionResult Create()
         {
@@ -35,7 +35,7 @@ namespace MyHome.Controllers
         {
             if (ModelState.IsValid)
             {
-                room.User = User.Identity.GetUserId();
+                room.User = LoggedInUser();
                 db.Rooms.Add(room);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index", "Dashboard");
@@ -58,7 +58,16 @@ namespace MyHome.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            string currentUser = LoggedInUser();
             Room room = await db.Rooms.FindAsync(id);
+            IEnumerable<Room> rooms = db.Rooms.Where(x => x.User == currentUser);
+        
+            if (!rooms.Contains(room))
+            {
+                return HttpNotFound();
+            }
+
             if (room == null)
             {
                 return HttpNotFound();
@@ -89,7 +98,16 @@ namespace MyHome.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            string currentUser = LoggedInUser();
             Room room = await db.Rooms.FindAsync(id);
+            IEnumerable<Room> rooms = db.Rooms.Where(x => x.User == currentUser);
+
+            if (!rooms.Contains(room))
+            {
+                return HttpNotFound();
+            }
+
             if (room == null)
             {
                 return HttpNotFound();
@@ -117,23 +135,5 @@ namespace MyHome.Controllers
             base.Dispose(disposing);
         }
 
-       // private decimal? getRoomValue(int? RoomID)
-       // {
-       //     //db.Rooms.ElementAt((int)item.RoomID).Value += item.Value;
-       //     decimal? total = 0;
-       //     var itemList = db.Items.Join(db.Rooms,
-       //              i => i.RoomID,
-       //              r => r.RoomID,
-       //              (i, r) => i).ToList();
-       //     foreach (var item in itemList)
-       //     {
-       //         if (item.RoomID == RoomID)
-       //         {
-       //             total += item.Value;
-       //         }
-       //     }
-       //
-       //     return total;
-       // }
     }
 }

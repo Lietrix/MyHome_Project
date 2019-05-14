@@ -15,11 +15,11 @@
             </th>
             <th></th>
         </tr>
-        @foreach (var item in Model)
+        @foreach (var item in Model.OrderByDescending(x => x.Value))
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Value)
+                    $@Html.DisplayFor(modelItem => item.Value)
                 </td>
                 <td>
                     <!--Displays the room name and when clicked goes to the edit page for that room-->

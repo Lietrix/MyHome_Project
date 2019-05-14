@@ -1,6 +1,5 @@
 ﻿@model MyHome.Models.Item
-@using MyHome.CustomIdentity;
-@using Microsoft.AspNet.Identity;
+
 @{
     ViewBag.Title = "Edit";
 }
@@ -61,9 +60,9 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Back to List", "Edit", "Rooms", new { id = Model.RoomID }, "")
+    </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

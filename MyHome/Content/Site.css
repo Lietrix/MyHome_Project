@@ -23,6 +23,10 @@ textarea {
     max-width: 280px;
 }
 
+.mavbar-bottom {
+    border:solid
+}
+
 .form-control{
     border-color: #808080;
 }
@@ -41,7 +45,11 @@ textarea {
     border-radius: 12px;
 }
 
-    .btn-josh:hover {
+.btn-josh:hover {
         color: #15c6d1;
         text-decoration: solid;
     }
+
+
+
+

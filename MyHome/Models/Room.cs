@@ -11,6 +11,7 @@ namespace MyHome.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Room
     {
@@ -33,6 +34,7 @@ namespace MyHome.Models
             
         }
 
+        [Display(Name = "Room Name")]
         public string Name { get; set; }
         
         public int RoomID { get; set; }

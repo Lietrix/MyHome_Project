@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
+using System.Collections.Generic;
 using MyHome.Models;
+using Microsoft.AspNet.Identity;
 
 namespace MyHome.Controllers
 {
@@ -19,8 +19,22 @@ namespace MyHome.Controllers
         // GET: Items
         public async Task<ActionResult> Index()
         {
-            var items = db.Items.Include(i => i.Room);
-            return View(await items.ToListAsync());
+            
+            string currentUser = User.Identity.GetUserId();
+            var temp = await db.Items.ToListAsync();
+            var items = temp.Where(x => x.Room.User == currentUser);
+
+            decimal? value = 0;
+            foreach(var x in items)
+            {
+                value += x.Value;
+            }
+
+            var trueValue = value.ToString();
+            // Returns the total value of all items belonging to the user
+            ViewBag.TotalValue = "$" + trueValue.TrimEnd('0');
+
+            return View(items);
         }
 
         // GET: Items/Details/5
@@ -30,15 +44,25 @@ namespace MyHome.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            string currentUser = User.Identity.GetUserId();
             Item item = await db.Items.FindAsync(id);
+            IEnumerable<Item> items = db.Items.Where(x => x.Room.User == currentUser);
+
+            if (!items.Contains(item))
+            {
+                return HttpNotFound();
+            }
+
             if (item == null)
             {
                 return HttpNotFound();
             }
+
             return View(item);
         }
 
-        // GET: Items/Create         Unused at the moment
+        // GET: Items/Create         Unused at the moment, partial view is what is being used to act as the UI, see _Additem in Views/Shared
         //public ActionResult Create()
         //{
         //    ViewBag.RoomID = new SelectList(db.Rooms, "RoomID", "Name");
@@ -54,9 +78,7 @@ namespace MyHome.Controllers
         {
             if (ModelState.IsValid)
             {  
-                
                 db.Items.Add(item);
-                
                 await db.SaveChangesAsync();
                 return RedirectToAction("Edit", "Rooms", new { id = item.RoomID });
             }
@@ -72,12 +94,21 @@ namespace MyHome.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            string currentUser = User.Identity.GetUserId();
             Item item = await db.Items.FindAsync(id);
+            IEnumerable<Item> items = db.Items.Where(x => x.Room.User == currentUser);
+
+            if (!items.Contains(item))
+            {
+                return HttpNotFound();
+            }
             if (item == null)
             {
                 return HttpNotFound();
             }
+
             ViewBag.RoomID = new SelectList(db.Rooms, "RoomID", "Name", item.RoomID);
+
             return View(item);
         }
 
@@ -92,7 +123,7 @@ namespace MyHome.Controllers
             {
                 db.Entry(item).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit", "Rooms", new { id = item.RoomID });
             }
             ViewBag.RoomID = new SelectList(db.Rooms, "RoomID", "Name", item.RoomID);
             return View(item);
@@ -105,7 +136,15 @@ namespace MyHome.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            string currentUser = User.Identity.GetUserId();
             Item item = await db.Items.FindAsync(id);
+            IEnumerable<Item> items = db.Items.Where(x => x.Room.User == currentUser);
+
+            if (!items.Contains(item))
+            {
+                return HttpNotFound();
+            }
             if (item == null)
             {
                 return HttpNotFound();

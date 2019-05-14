@@ -33,17 +33,14 @@ namespace MyHome
             await configSendGridasync(message.Subject,message.Body,message.Destination);
         }
 
-
-     
-        // Use NuGet to install SendGrid (Basic C# client lib) 
+        //SendGrid API client
         public async Task configSendGridasync(string subject, string message, string email)
         {
             try
             {
                 var apiKey = "SG" + ".atI1ByC1RgSyB46FzdDWHQ.72ExVCeVvxjZcoRDcqhxX-DnNwAXI1MZ_qtrsUUy" + "WKM";
                 var client = new SendGridClient(apiKey);
-                //var msg = new IdentityMessage();
-                var From = new EmailAddress("myhomemainuser@gmail.com", "Administration");
+                var From = new EmailAddress("MyHomeMainUser@gmail.com", "Administration");
                 var Subject = subject;
                 var PlainTextContent = message;
                 var HtmlContent = message;
@@ -54,7 +51,6 @@ namespace MyHome
             catch (ArgumentNullException)
             {
                 throw;
-
             }
         }
     }
@@ -90,10 +86,10 @@ namespace MyHome
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
+                RequireNonLetterOrDigit = false,
+                RequireDigit = false,
+                RequireLowercase = false,
+                RequireUppercase = false,
             };
 
             // Configure user lockout defaults

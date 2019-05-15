@@ -29,7 +29,7 @@
             @Html.HiddenFor(model => model.User)
             <div>
                 <div>
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <input type="submit" value="Rename" class="btn-josh" />
                 </div>
             </div>
         </div>
@@ -59,17 +59,17 @@
                 </td>
                 <td>
                     <!--Displays the room name and when clicked goes to the edit page for that room-->
-                    @Html.ActionLink(item.Name, "Edit", "Items", new { id = item.ItemID }, "")
+                    @Html.ActionLink(item.Name, "Edit", "Items", new { id = item.ItemID }, new { @class = "btn-josh" })
                 </td>
                 <td>
                     <!--Shows a delete option next to each room, when clicked goes to the delete page-->
-                    @Html.ActionLink("Delete Item", "Delete", "Items", new { id = item.ItemID }, "")
+                    @Html.ActionLink("Delete", "Delete", "Items", new { id = item.ItemID }, new { @class = "" })
                 </td>
             </tr>
         }
     </table>
     <div>
-        @Html.ActionLink("Return to dashboard", "Index", "Dashboard", "", "")
+        @Html.ActionLink("Return to dashboard", "Index", "Dashboard", "", new {@class = "btn-josh2" })
     </div>
 
     @section Scripts {

@@ -20,5 +20,10 @@ namespace MyHome.Controllers
             string CurrentUser = User.Identity.GetUserId();
             return View(await db.Rooms.Where(x => x.User == CurrentUser).ToListAsync());
         }
+
+        //public async PartialViewResult _Sidebar(string id)
+        //{
+        //  TODO: Make sidebar display all rooms, change dashboard afterwards.
+        //}
     }
 }

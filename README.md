@@ -38,6 +38,8 @@ The homepage menu will include existing rooms, add rooms, settings, and logout. 
   
   [Download Powerpoint presentation](README.md#Download-my-Powerpoint)
   
+  [Lessons Learned](README.md#Lessons-Learned)
+  
 ## Requirements  
   
   ID | Requirement | Implemented | Tested
@@ -126,3 +128,11 @@ Users can create rooms with ease, and add items directly to these rooms. Each it
 ### Download my Powerpoint 
 **[Powerpoint download](https://github.com/Lietrix/MyHome_Project/files/3085723/Presentation.pptx)**
 
+
+### Lessons learned
+
+• Start with a more solid foundation, making better requirements, develop with a more easier to learn tool like .NET Core.
+
+• Develop for the long run to make things easier later down the road,make the database more detailed for future implentations.
+
+• Learn the tools for making a more userfriendly webpage, CSS, HTML, jQuery

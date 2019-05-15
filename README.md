@@ -113,13 +113,13 @@ Users can create rooms with ease, and add items directly to these rooms. Each it
 
 ## Current Progress
 **Login Menu**
-![1](https://user-images.githubusercontent.com/36711347/56227274-f6ad7800-6029-11e9-856b-672488215932.png)
+![1](https://user-images.githubusercontent.com/36711347/57797513-7731c800-76ff-11e9-8c22-42f05bb6ae9c.png)
 
 **Once you're loggedin homepage**
 ![2](https://user-images.githubusercontent.com/36711347/56227337-15137380-602a-11e9-90bc-1992081e3b25.png)
 
 **Dashboard Menu, ability to create rooms**
-![3](https://user-images.githubusercontent.com/36711347/56227375-28beda00-602a-11e9-91a7-79084a1f599c.png)
+![3](https://user-images.githubusercontent.com/36711347/57797490-66815200-76ff-11e9-9ceb-e5f314840030.png)
 
 
 
